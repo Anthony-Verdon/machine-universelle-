@@ -30,7 +30,7 @@ class Menu:
     #se charge de faire apparaître et de placer les images, boutons  et entrées de texte
     def lancerMenu(self):
         
-        self.menu.title("Jeu de la Vie")#ajoute un titre à la fenêtre
+        self.menu.title("Machine Universelle")#ajoute un titre à la fenêtre
         self.menu.geometry("1920x1080")#donne les dimensions de la fenêtre
         self.menu.iconbitmap("logo.ico")#ajoute une icône à la fenêtre
         self.menu.minsize(1920,1080)#donne une taille minimale à la fenêtre
@@ -155,7 +155,7 @@ class Jeu:
     #gère l'affichage de la page jeu
     def lancerJeu(self,nombre,calcul):
         
-        self.jeu.title("Jeu de la Vie")
+        self.jeu.title("Machine Universelle")
         self.jeu.geometry("1920x1080")
         self.jeu.iconbitmap("logo.ico")
         self.jeu.minsize(1920,1080)
