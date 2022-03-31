@@ -36,22 +36,27 @@ class Menu:
         self.menu.minsize(1920,1080)#donne une taille minimale à la fenêtre
         self.menu.config(background="#EB9F1B")#change la couleur de fond de la fenêtre
         
-        self.frameImage.pack(expand="yes")#affiche et centre la frame image
-        
         self.InputTour=tkinter.Entry(self.frameInput,font=("Kokonor",20))#créer un input 
         self.InputTour.insert(0,"noter nombre à changer")#le placeholder de l'input
         self.InputTour.bind('<FocusIn>', self.removeTour)#si on clique dessus, lance la fonction removeTour
         self.InputTour.pack(pady=10)#affiche l'input avec une marge externe en haut et en bas
         
+        img1 = ImageTk.PhotoImage(Image.open("ruban.webp"))#importe l'image 
+        panel1 = tkinter.Label(self.frameImage, image = img1)#créer un label à partir de l'image et la place dans la frame image
+        panel1.pack(side="left")#affiche le label en la collant à gauche de la frame et en lui ajoutant une marge externe à droite et à gauche
+        
         img4 = ImageTk.PhotoImage(Image.open("PointInterrogation.png"))
         panel4 = tkinter.Button(self.menu, image = img4,bg="#EB9F1B",command=self.PointInterrogation)#créer un bouton à partir de l'image 
         panel4.place(x=1325,y=25)#place le bouton à des coordonnées précises
+        self.frameImage.place(x=450,y=350)#affiche et centre la frame image
         
+        label_title=tkinter.Label(self.menu,text="Machine Universelle de Turing",font=("Kokonor",40),bg="#EB9F1B",fg="black")
+        label_title.place(x=575,y=150)
         #bouton pratique
         self.boutonInput.pack(pady=10)
-        self.frameInput.place(x=1200,y=540)
+        self.frameInput.place(x=1200,y=450)
         self.boutonTab1.pack(side="left",padx=10)
-        self.frameBouton.pack(expand="yes")
+        self.frameBouton.place(x=775,y=700)
         self.boutonQuitter.place(x=1400,y=25)
         
         #bouton calcul
@@ -60,7 +65,7 @@ class Menu:
         self.boutonPLUS1.pack(side="left",padx=10)
         self.boutonMOINS1.pack(side="left",padx=10)
         self.boutonINVERSION.pack(side="left",padx=10)
-        self.frameCalcul.pack(expand="yes")
+        self.frameCalcul.place(x=500,y=800)
         
         self.menu.mainloop()#permet de voir si il y a des interactions avec la fenêtre 
     
@@ -81,7 +86,7 @@ class Menu:
         popUp.iconbitmap("logo.ico")
         popUp.minsize(1080,360)
         popUp.config(background="#EB9F1B")
-        labelPopUp=tkinter.Label(popUp, text="Bonjour et merci d'utiliser notre application !\n Pour faire un calcul, vous devez d'abord envoyer les informations demandées en bas à droite,\n puis choisir votre calcul.\n A chaque utilisation, vous devrez renoter les informations. ",justify="center",font=("Kokonor",20),bg="#EB9F1B")
+        labelPopUp=tkinter.Label(popUp, text="Bonjour et merci d'utiliser notre application !\n Pour faire un calcul, \n vous devez d'abord envoyer les informations demandées en bas à droite,\n puis choisir votre calcul.\n A chaque utilisation, vous devrez renoter les informations. ",justify="center",font=("Kokonor",20),bg="#EB9F1B")
         labelPopUp.pack(expand="yes")
         
     #commande du bouton " quitter ",ferme la fenêtre menu
@@ -311,7 +316,7 @@ class Jeu:
     def compteur(self):
             self.frameCompteur.destroy()
             self.frameCompteur=tkinter.Frame(self.jeu)
-            self.frameCompteur.place(x=200,y=150)
+            self.frameCompteur.place(x=450,y=150)
             if self.ruban[3][2]=="fin":
                 reponse=[]
                 for x in range(len(self.ruban)):
